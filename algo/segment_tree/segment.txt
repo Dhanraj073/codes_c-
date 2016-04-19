@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+node 
+{
+	int val;
+	void split(node &l,node &r);
+	void merge(node a,node b)
+	{
+		int val=min(a.val,b,val)
+	}
+	}arr[1<<n+1];
+
+node range_query(int root,int last_leaf,int right_leaf,int u,int v)
+{
+	node l,r;
+	if(u<=left_most && right_most<=v)
+	return tree[root];
+	int mid=(left_most+right_most)>>1;
+	tree[root].split(tree[2*root],tree[(2*root)+1]);
+	if(u<mid)
+	l=range_query(2*root,last_leaf,mid,u,v);
+	if(v>mid)
+	r=range_query((2*root+)1,mid+1,right_leaf,u,v);
+	tree[root].merge(tree[2*root],tree[(2*root)+1]);
+	node n;
+	n.merge(l,r);
+	return n;
+}
+
+void mergeup(int post)
+{
+	post>>=1;
+	while(post)
+	{
+	
+	tree[post].merge(tree[post*2],tree[(2*post)+1])
+	pst>>=1;
+	}
+}
+
+void update(int pos,int new_val)
+{
+	pos+=(1<<n)
+	tree[pos]=new_val;
+	mergeup(pos);
+}
+
+
